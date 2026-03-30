@@ -1,0 +1,38 @@
+.product-img-wrapper {
+  transition: all 0.5s ease;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.main-img {
+  max-height: 450px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.product-img-wrapper:hover .main-img {
+  transform: scale(1.05); 
+}
+
+
+.btn-primary {
+  background: linear-gradient(45deg, #0d6efd, #004fb1);
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3) !important;
+}
+
+
+.line-height-lg {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+h1 {
+  letter-spacing: -1px;
+}

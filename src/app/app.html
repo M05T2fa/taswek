@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet> 
+</div>
+@if (showScrollBtn()) {
+  <button (click)="scrollToTop()" class="btn btn-primary rounded-circle shadow-lg back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+}

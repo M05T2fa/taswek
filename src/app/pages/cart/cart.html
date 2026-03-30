@@ -1,0 +1,71 @@
+<div class="container mt-5 pt-5 pb-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold m-0">
+      Shopping Cart <span class="text-primary">({{ _cartService.cartItems().length }})</span>
+    </h2>
+
+    @if (_cartService.cartItems().length > 0) {
+    <button (click)="clearAll()" class="btn btn-outline-danger btn-sm rounded-pill px-3 transition-all">
+      Clear All 🗑️
+    </button>
+    }
+  </div>
+
+  @if (_cartService.cartItems().length > 0) {
+  <div class="row g-4">
+    <div class="col-lg-8">
+      @for (item of _cartService.cartItems(); track item.id) {
+      <div class="card mb-3 border-0 shadow-sm p-3 rounded-4 item-card">
+        <div class="row align-items-center">
+          <div class="col-3 col-md-2 text-center">
+            <img [src]="item.image" class="img-fluid rounded" style="max-height: 80px; object-fit: contain;">
+          </div>
+          <div class="col-6 col-md-7">
+            <h6 class="fw-bold mb-1 text-truncate">{{ item.title }}</h6>
+            <p class="text-muted small mb-0">{{ item.category }}</p>
+            <span class="text-primary fw-bold fs-5">{{ item.price | currency }}</span>
+          </div>
+          <div class="col-3 col-md-3 text-end">
+            <button (click)="removeItem(item.id)" class="btn btn-delete rounded-circle shadow-sm">
+              🗑️
+            </button>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm p-4 rounded-4 summary-card bg-light">
+        <h5 class="fw-bold mb-4">Order Summary</h5>
+        <div class="d-flex justify-content-between mb-2 text-secondary">
+          <span>Subtotal:</span>
+          <span>{{ getTotalPrice() | currency }}</span>
+        </div>
+        <div class="d-flex justify-content-between mb-2 text-secondary">
+          <span>Shipping:</span>
+          <span class="text-success fw-bold">Free</span>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between mb-4">
+          <span class="h5 fw-bold">Total:</span>
+          <span class="h5 fw-bold text-primary">{{ getTotalPrice() | currency }}</span>
+        </div>
+        <a routerLink="/checkout" class="btn btn-primary btn-lg w-100 rounded-pill shadow-lg">
+          Checkout Now 🚀
+        </a>
+        <a routerLink="/home" class="btn btn-link w-100 text-muted mt-2 text-decoration-none">
+          ← Back to Store
+        </a>
+      </div>
+    </div>
+  </div>
+  } @else {
+  <div class="text-center py-5 empty-state shadow-sm rounded-4 bg-white">
+    <div class="display-1 mb-3 opacity-25">🛒</div>
+    <h3 class="text-muted fw-bold">Your cart is empty!</h3>
+    <p class="text-secondary mb-4">Looks like you haven't added anything yet.</p>
+    <a routerLink="/home" class="btn btn-primary px-5 py-2 rounded-pill shadow">Start Shopping</a>
+  </div>
+  }
+</div>

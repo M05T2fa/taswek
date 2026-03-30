@@ -1,0 +1,83 @@
+.custom-nav {
+  background: rgba(33, 37, 41, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 0;
+  transition: all 0.4s ease;
+}
+
+
+.custom-nav.scrolled {
+  padding: 8px 0;
+  background: #1a1d20;
+}
+
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 5px;
+  left: 50%;
+  background: #0d6efd;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+
+.cart-icon-wrapper {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cart-icon-wrapper:hover {
+  transform: scale(1.2);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: 0.7rem;
+  padding: 4px 7px;
+  border: 2px solid #212529;
+}
+
+
+.btn-logout {
+  background: transparent;
+  color: #ff4757;
+  border: 2px solid #ff4757;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: #ff4757;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+  transform: translateY(-2px);
+}
+
+
+.navbar-brand:hover {
+  letter-spacing: 1px;
+}
